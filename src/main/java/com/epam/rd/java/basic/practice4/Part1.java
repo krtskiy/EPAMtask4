@@ -3,6 +3,8 @@ package com.epam.rd.java.basic.practice4;
 
 public class Part1 {
 
+    static String input = Demo.readFile("part1.txt");
+
     public static void main(String[] args) {
         StringBuilder result = new StringBuilder();
         int counter = 0;
@@ -15,14 +17,14 @@ public class Part1 {
         }
         for (int i = 0; i < words.length; i++) {
             if (i < words.length - 1) {
-            result.append(words[i]).append(" ");
+                result.append(words[i]).append(" ");
             } else {
-            result.append(words[i]);
+                result.append(words[i]);
             }
         }
-        String resultString = result.toString();
-        resultString = resultString.replaceAll("\\s{2,}", "\n");
-        System.out.println(resultString); //NOSONAR
+        String resStr = result.toString();
+        resStr = resStr.replaceAll("\\s{2,}", "\r\n");
+        System.out.print(resStr); //NOSONAR
     }
 
 }
