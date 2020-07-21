@@ -13,9 +13,8 @@ public class Demo {
     public static String readFile(String path) {
         StringBuilder result = new StringBuilder();
         File file = new File(path);
-        Scanner scan = null;
         try {
-            scan = new Scanner(file, "cp1251");
+            Scanner scan = new Scanner(file, "cp1251");
             while (scan.hasNextLine()) {
                 result.append(scan.nextLine()).append(System.lineSeparator());
             }
