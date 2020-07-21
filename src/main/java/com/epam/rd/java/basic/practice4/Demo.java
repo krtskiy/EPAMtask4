@@ -15,14 +15,14 @@ public class Demo {
         File file = new File(path);
         Scanner scan = null;
         try {
-            scan = new Scanner(file, "UTF-8");
+            scan = new Scanner(file, "cp1251");
             while (scan.hasNextLine()) {
                 result.append(scan.nextLine()).append(System.lineSeparator());
             }
         scan.close();
         return result.toString().trim();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //NOSONAR
         }
         return result.toString();
     }
