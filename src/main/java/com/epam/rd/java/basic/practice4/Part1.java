@@ -1,13 +1,15 @@
 package com.epam.rd.java.basic.practice4;
 
+
 public class Part1 {
 
     public static void main(String[] args) {
+        String lineSeparatorep = System.lineSeparator();
         StringBuilder result = new StringBuilder();
         int counter = 0;
-        String[] words = Demo.readFile("part1.txt").split(" ");
+        String[] words = Demo.readFile("part1.txt").split("\\s");
         for (String word : words) {
-            if (word.length() >= 4) {
+            if (word.length() > 3) {
                 words[counter] = words[counter].substring(2, word.length());
             }
             counter++;
@@ -19,7 +21,9 @@ public class Part1 {
             result.append(words[i]);
             }
         }
-        System.out.println(result); //NOSONAR
+        String resultString = result.toString();
+        resultString = resultString.replaceAll("\\s{2,}", lineSeparatorep);
+        System.out.println(resultString); //NOSONAR
     }
 
 }
