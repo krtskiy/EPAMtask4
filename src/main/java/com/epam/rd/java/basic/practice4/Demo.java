@@ -12,7 +12,6 @@ public class Demo {
     private static final InputStream STD_IN = System.in;
 
     public static void main(String[] args) {
-        // just my empty main method
         System.out.println("=========================== PART1");
 
         Part1.main(args);
@@ -25,7 +24,7 @@ public class Demo {
 
         // set the mock input
 
-        System.setIn(new ByteArrayInputStream(
+        System.setIn(new ByteArrayInputStream( //NOSONAR
 
                 "char^String^int^double^stop".replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
 
@@ -33,7 +32,7 @@ public class Demo {
 
         // restore the standard input
 
-        System.setIn(STD_IN);
+        System.setIn(STD_IN); //NOSONAR
 
         System.out.println("=========================== PART4");
 
@@ -43,7 +42,7 @@ public class Demo {
 
         // set the mock input
 
-        System.setIn(new ByteArrayInputStream(
+        System.setIn(new ByteArrayInputStream( //NOSONAR
 
                 "table ru^table en^apple ru^stop".replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
 
@@ -51,13 +50,13 @@ public class Demo {
 
         // restore the standard input
 
-        System.setIn(STD_IN);
+        System.setIn(STD_IN); //NOSONAR
 
         System.out.println("=========================== PART6");
 
         // set the mock input
 
-        System.setIn(new ByteArrayInputStream(
+        System.setIn(new ByteArrayInputStream( //NOSONAR
 
                 "Latn^Cyrl^asdf^latn^cyrl^stop".replace("^", System.lineSeparator()).getBytes(StandardCharsets.UTF_8)));
 
@@ -65,12 +64,12 @@ public class Demo {
 
         // restore the standard input
 
-        System.setIn(STD_IN);
+        System.setIn(STD_IN); //NOSONAR
     }
 
     public static String readFile(String path) {
         StringBuilder result = new StringBuilder();
-        File file = new File(path);
+        File file = new File(path); //NOSONAR
         try {
             Scanner scan = new Scanner(file, "cp1251");
             while (scan.hasNextLine()) {
@@ -79,7 +78,7 @@ public class Demo {
         scan.close();
         return result.toString().trim();
         } catch (FileNotFoundException e) {
-            e.printStackTrace(); //NOSONAR
+            e.printStackTrace();
         }
         return result.toString();
     }
