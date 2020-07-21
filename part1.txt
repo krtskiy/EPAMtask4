@@ -1,4 +1,7 @@
-When I was younger
-So much younger
-Than day
-Информацию из файла в верхний регистр
+This is a test
+And this is also a test
+And these are also tests
+test
+Это тест
+Это также тест
+И это также тесты

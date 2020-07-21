@@ -1,6 +1,7 @@
 package com.epam.rd.java.basic.practice4;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.security.SecureRandom;
 import java.util.*;
@@ -20,14 +21,22 @@ public class Part2 {
         StringBuilder numbers = new StringBuilder();
         SecureRandom secureRandom = new SecureRandom();
         try {
-            PrintWriter pw = new PrintWriter(randomUnsorted);
+            FileWriter fileWriter = new FileWriter(randomUnsorted);
             for (int i = 0; i < 10; i++) {
                 int rand = secureRandom.nextInt(50);
                 numbers.append(rand).append(" ");
             }
-            pw.print(numbers);
-            pw.close();
-        } catch (FileNotFoundException e) {
+            fileWriter.write(numbers.toString());
+            fileWriter.close();
+
+//            PrintWriter pw = new PrintWriter(randomUnsorted);
+//            for (int i = 0; i < 10; i++) {
+//                int rand = secureRandom.nextInt(50);
+//                numbers.append(rand).append(" ");
+//            }
+//            pw.print(numbers);
+//            pw.close();
+        } catch (Exception e) {
             e.printStackTrace(); //NOSONAR
         }
     }

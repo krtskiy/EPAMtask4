@@ -9,13 +9,17 @@ public class Part1 {
     static String input = Demo.readFile("part1.txt");
 
     public static void main(String[] args) {
+        System.out.println(replaceFirstTwoLetters()); //NOSONAR
+    }
+
+    private static String replaceFirstTwoLetters() {
         String input = Demo.readFile("part1.txt");
         Pattern p = Pattern.compile("(?U)\\b\\w{4,}?\\b");
         Matcher m = p.matcher(input);
         while (m.find()) {
             input = input.replaceAll(m.group(), m.group().substring(2));
         }
-        System.out.println(input); //NOSONAR
+        return input;
     }
 
 }
