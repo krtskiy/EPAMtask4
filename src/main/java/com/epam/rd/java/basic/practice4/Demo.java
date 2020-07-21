@@ -69,7 +69,7 @@ public class Demo {
 
     public static String readFile(String path) {
         StringBuilder result = new StringBuilder();
-        File file = new File(path); //NOSONAR
+        File file = new File(path);
         try {
             Scanner scan = new Scanner(file, "cp1251");
             while (scan.hasNextLine()) {
