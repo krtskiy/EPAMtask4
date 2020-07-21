@@ -1,30 +1,21 @@
 package com.epam.rd.java.basic.practice4;
 
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Part1 {
 
     static String input = Demo.readFile("part1.txt");
 
     public static void main(String[] args) {
-        StringBuilder result = new StringBuilder();
-        int counter = 0;
-        String[] words = Demo.readFile("part1.txt").split("\\s");
-        for (String word : words) {
-            if (word.length() > 3) {
-                words[counter] = words[counter].substring(2, word.length());
-            }
-            counter++;
+        String input = Demo.readFile("part1.txt");
+        Pattern p = Pattern.compile("(?U)\\b\\w{4,}?\\b");
+        Matcher m = p.matcher(input);
+        while (m.find()) {
+            input = input.replaceAll(m.group(), m.group().substring(2));
         }
-        for (int i = 0; i < words.length; i++) {
-            if (i < words.length - 1) {
-                result.append(words[i]).append(" ");
-            } else {
-                result.append(words[i]);
-            }
-        }
-        String resStr = result.toString();
-        resStr = resStr.replaceAll("\\s{2,}", "\r\n");
-        System.out.print(resStr); //NOSONAR
+        System.out.println(input); //NOSONAR
     }
 
 }
