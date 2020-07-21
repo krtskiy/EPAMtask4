@@ -10,15 +10,21 @@ public class Demo {
         // just my empty main method
     }
 
-    public static String readFile(String path) throws FileNotFoundException {
+    public static String readFile(String path) {
         StringBuilder result = new StringBuilder();
         File file = new File(path);
-        Scanner scan = new Scanner(file, "UTF-8");
-        while (scan.hasNextLine()) {
-            result.append(scan.nextLine()).append(System.lineSeparator());
+        Scanner scan = null;
+        try {
+            scan = new Scanner(file, "UTF-8");
+            while (scan.hasNextLine()) {
+                result.append(scan.nextLine()).append(System.lineSeparator());
+            }
+        scan.close();
+        return result.toString().trim();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-            scan.close();
-            return result.toString().trim();
+        return result.toString();
     }
 
 }
