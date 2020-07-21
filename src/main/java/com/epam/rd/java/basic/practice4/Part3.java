@@ -15,11 +15,11 @@ public class Part3 {
 
     private static String part3Path = "part3.txt";
 
-    public static void returnValueByType() {
+    private static void returnValueByType() {
         Map<String, String> inputMap = new LinkedHashMap<>();
         String input = Demo.readFile(part3Path);
         String regexFindIntegers = "(?<=\\s)\\d+(?=\\s)";
-        String regexFindCharacters = "\\b[A-zА-яЁё]{1}?\\b";
+        String regexFindCharacters = "\\b[A-zА-яЁё]\\b";
         String regexFindDoublesWithIntPart = "\\b\\d+?\\.\\d+?\\b";
         String regexFindDoublesWithoutIntPart = "(?<=\\s)\\.\\d+\\b";
         String regexFindStrings = "\\b[A-zА-яЁё]{2,}?\\b";
@@ -61,8 +61,7 @@ public class Part3 {
                     }
                     System.out.print(sb);
                 }
-                    scan.close();
-                    break;
+                System.out.println();
             } else if (userInput.equals("char")) {
                 for (Map.Entry<String, String> entry : inputMap.entrySet()) {
                     StringBuilder sb = new StringBuilder();
@@ -71,6 +70,7 @@ public class Part3 {
                     }
                     System.out.print(sb);
                 }
+                System.out.println();
             } else if (userInput.equals("int")) {
                 for (Map.Entry<String, String> entry : inputMap.entrySet()) {
                     StringBuilder sb = new StringBuilder();
@@ -79,6 +79,7 @@ public class Part3 {
                     }
                     System.out.print(sb);
                 }
+                System.out.println();
             } else if (userInput.equals("double")) {
                 for (Map.Entry<String, String> entry : inputMap.entrySet()) {
                     StringBuilder sb = new StringBuilder();
@@ -87,6 +88,7 @@ public class Part3 {
                     }
                     System.out.print(sb);
                 }
+                System.out.println();
             } else if (userInput.equals("stop")) {
                 scan.close();
                 break;
