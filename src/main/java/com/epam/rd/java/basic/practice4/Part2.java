@@ -1,9 +1,7 @@
 package com.epam.rd.java.basic.practice4;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.*;
 
@@ -22,13 +20,13 @@ public class Part2 {
         StringBuilder numbers = new StringBuilder();
         SecureRandom secureRandom = new SecureRandom();
         try {
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(randomUnsorted));
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(randomUnsorted), "cp1251"));
             for (int i = 0; i < 10; i++) {
                 int rand = secureRandom.nextInt(50);
                 numbers.append(rand).append(" ");
             }
-            fileWriter.write(numbers.toString());
-            fileWriter.close();
+            writer.write(numbers.toString());
+            writer.close();
 
 //            PrintWriter pw = new PrintWriter(randomUnsorted);
 //            for (int i = 0; i < 10; i++) {
@@ -38,7 +36,7 @@ public class Part2 {
 //            pw.print(numbers);
 //            pw.close();
         } catch (Exception e) {
-            e.printStackTrace(); //NOSONAR
+            e.printStackTrace();
         }
     }
 
@@ -68,13 +66,13 @@ public class Part2 {
 
     private static void demonstrateUnsorted() {
         String result = "input ==> ";
-        System.out.println(result + Demo.readFile(randomUnsorted)); //NOSONAR
+        System.out.println(result + Demo.readFile(randomUnsorted));
 
     }
 
     private static void demonstrateSorted() {
         String result = "output ==> ";
-        System.out.println(result + Demo.readFile(randomSorted)); //NOSONAR
+        System.out.println(result + Demo.readFile(randomSorted));
     }
 
 
