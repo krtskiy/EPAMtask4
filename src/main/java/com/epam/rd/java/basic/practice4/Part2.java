@@ -9,16 +9,14 @@ import java.util.*;
 
 public class Part2 {
     public static void main(String[] args) {
-        writeTenRandomNumbersToFile();
-        demonstrateUnsorted();
-        sortRandomNumberFromFile();
-        demonstrateSorted();
+        System.out.println(writeTenRandomNumbersToFile());
+        System.out.println(sortRandomNumberFromFile());
     }
 
     private static String randomUnsorted = "part2.txt";
     private static String randomSorted = "part2_sorted.txt";
 
-    private static void writeTenRandomNumbersToFile() {
+    private static String writeTenRandomNumbersToFile() {
         StringBuilder numbers = new StringBuilder();
         SecureRandom secureRandom = new SecureRandom();
         try {
@@ -40,9 +38,11 @@ public class Part2 {
         } catch (Exception e) {
             e.printStackTrace(); //NOSONAR
         }
+        String result = "input ==> ";
+        return result + Demo.readFile(randomUnsorted);
     }
 
-    private static void sortRandomNumberFromFile() {
+    private static String sortRandomNumberFromFile() {
         StringBuilder numbers = new StringBuilder();
         List<Integer> inputSet = new ArrayList<>();
         String input = Demo.readFile(randomUnsorted);
@@ -61,18 +61,14 @@ public class Part2 {
         } catch (FileNotFoundException e) {
             e.printStackTrace(); //NOSONAR
         }
-
+        String result = "output ==> ";
+        return result + Demo.readFile(randomSorted);
     }
 
     private static void demonstrateUnsorted() {
         String result = "input ==> ";
         System.out.println(result + Demo.readFile(randomUnsorted)); //NOSONAR
 
-    }
-
-    private static void demonstrateSorted() {
-        String result = "output ==> ";
-        System.out.println(result + Demo.readFile(randomSorted)); //NOSONAR
     }
 
 
