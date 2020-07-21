@@ -4,7 +4,7 @@ package com.epam.rd.java.basic.practice4;
 public class Part1 {
 
     public static void main(String[] args) {
-        String lineSeparatorep = System.lineSeparator();
+        String lineSeparator = System.lineSeparator();
         StringBuilder result = new StringBuilder();
         int counter = 0;
         String[] words = Demo.readFile("part1.txt").split("\\s");
@@ -22,7 +22,7 @@ public class Part1 {
             }
         }
         String resultString = result.toString();
-        resultString = resultString.replaceAll("\\s{2,}", lineSeparatorep);
+        resultString = resultString.replaceAll("\\s{2,}", lineSeparator);
         System.out.println(resultString); //NOSONAR
     }
 
