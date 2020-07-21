@@ -1,16 +1,27 @@
 package com.epam.rd.java.basic.practice4;
 
+import java.io.FileNotFoundException;
+
 public class Part1 {
 
-    public static void main(String[] args) {
-        // split string into string[]
-        // if string[i].length > 4 ==> string[i] = string[i].substring(2, s2.length());
-        // StringBuilder result
-
-        String s1 = "word";
-        String s2 = "ridiculous";
-        System.out.println(s2.substring(2, s2.length()));
-
+    public static void main(String[] args) throws FileNotFoundException {
+        StringBuilder result = new StringBuilder();
+        int counter = 0;
+        String[] words = Demo.readFile("part1.txt").split(" ");
+        for (String word : words) {
+            if (word.length() >= 4) {
+                words[counter] = words[counter].substring(2, word.length());
+            }
+            counter++;
+        }
+        for (int i = 0; i < words.length; i++) {
+            if (i < words.length - 1) {
+            result.append(words[i]).append(" ");
+            } else {
+            result.append(words[i]);
+            }
+        }
+        System.out.println(result); //NOSONAR
     }
 
 }
