@@ -9,14 +9,16 @@ import java.util.*;
 
 public class Part2 {
     public static void main(String[] args) {
-        System.out.println(writeTenRandomNumbersToFile());
-        System.out.println(sortRandomNumberFromFile());
+        writeTenRandomNumbersToFile();
+        demonstrateUnsorted();
+        sortRandomNumberFromFile();
+        demonstrateSorted();
     }
 
     private static String randomUnsorted = "part2.txt";
     private static String randomSorted = "part2_sorted.txt";
 
-    private static String writeTenRandomNumbersToFile() {
+    private static void writeTenRandomNumbersToFile() {
         StringBuilder numbers = new StringBuilder();
         SecureRandom secureRandom = new SecureRandom();
         try {
@@ -38,8 +40,6 @@ public class Part2 {
         } catch (Exception e) {
             e.printStackTrace(); //NOSONAR
         }
-        String result = "input ==> ";
-        return result + Demo.readFile(randomUnsorted);
     }
 
     private static String sortRandomNumberFromFile() {
@@ -63,12 +63,18 @@ public class Part2 {
         }
         String result = "output ==> ";
         return result + Demo.readFile(randomSorted);
+
     }
 
     private static void demonstrateUnsorted() {
         String result = "input ==> ";
         System.out.println(result + Demo.readFile(randomUnsorted)); //NOSONAR
 
+    }
+
+    private static void demonstrateSorted() {
+        String result = "output ==> ";
+        System.out.println(result + Demo.readFile(randomSorted)); //NOSONAR
     }
 
 
