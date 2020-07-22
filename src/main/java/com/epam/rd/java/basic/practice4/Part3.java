@@ -51,8 +51,7 @@ public class Part3 {
         while (mFindStrings.find()) {
             inputMap.put(mFindStrings.group(), STRING);
         }
-
-
+        
         Scanner scan = new Scanner(System.in);
         while (true) {
             String userInput = scan.nextLine();
