@@ -17,36 +17,36 @@ public class Part3 {
     private static final String DOUBLE = "double";
     private static final String INTEGER = "int";
     private static final String CHARACTER = "char";
+    private static final String REGEX_INTEGERS = "(?<=\\s)\\d+(?=\\s)";
+    private static final String REGEX_CHARACTERS = "\\b[A-zА-яЁё]\\b";
+    private static final String REGEX_DOUBLES_WITH_INT_PART = "\\b\\d+?\\.\\d+?\\b";
+    private static final String REGEX_DOUBLES_WITHOUT_INT_PART = "(?<=\\s)\\.\\d+\\b";
+    private static final String REGEX_STRINGS = "\\b[A-zА-яЁё]{2,}?\\b";
 
     private static void returnValueByType() {
         Map<String, String> inputMap = new LinkedHashMap<>();
         String input = Demo.readFile("part3.txt");
-        String regexFindIntegers = "(?<=\\s)\\d+(?=\\s)";
-        String regexFindCharacters = "\\b[A-zА-яЁё]\\b";
-        String regexFindDoublesWithIntPart = "\\b\\d+?\\.\\d+?\\b";
-        String regexFindDoublesWithoutIntPart = "(?<=\\s)\\.\\d+\\b";
-        String regexFindStrings = "\\b[A-zА-яЁё]{2,}?\\b";
-        Pattern pFindIntegers = Pattern.compile(regexFindIntegers);
+        Pattern pFindIntegers = Pattern.compile(REGEX_INTEGERS);
         Matcher mFindIntegers = pFindIntegers.matcher(input);
         while (mFindIntegers.find()) {
             inputMap.put(mFindIntegers.group(), INTEGER);
         }
-        Pattern pFindCharacters = Pattern.compile(regexFindCharacters);
+        Pattern pFindCharacters = Pattern.compile(REGEX_CHARACTERS);
         Matcher mFindCharacters = pFindCharacters.matcher(input);
         while (mFindCharacters.find()) {
             inputMap.put(mFindCharacters.group(), CHARACTER);
         }
-        Pattern pFindDoublesWithIntPart = Pattern.compile(regexFindDoublesWithIntPart);
+        Pattern pFindDoublesWithIntPart = Pattern.compile(REGEX_DOUBLES_WITH_INT_PART);
         Matcher mFindDoublesWithIntPart = pFindDoublesWithIntPart.matcher(input);
         while (mFindDoublesWithIntPart.find()) {
             inputMap.put(mFindDoublesWithIntPart.group(), DOUBLE);
         }
-        Pattern pFindDoublesWithoutIntPart = Pattern.compile(regexFindDoublesWithoutIntPart);
+        Pattern pFindDoublesWithoutIntPart = Pattern.compile(REGEX_DOUBLES_WITHOUT_INT_PART);
         Matcher mFindDoublesWithoutIntPart = pFindDoublesWithoutIntPart.matcher(input);
         while (mFindDoublesWithoutIntPart.find()) {
             inputMap.put(mFindDoublesWithoutIntPart.group(), DOUBLE);
         }
-        Pattern pFindStrings = Pattern.compile(regexFindStrings);
+        Pattern pFindStrings = Pattern.compile(REGEX_STRINGS);
         Matcher mFindStrings = pFindStrings.matcher(input);
         while (mFindStrings.find()) {
             inputMap.put(mFindStrings.group(), STRING);

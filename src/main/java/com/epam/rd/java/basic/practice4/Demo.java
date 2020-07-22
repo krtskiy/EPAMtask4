@@ -11,7 +11,7 @@ public class Demo {
 
     private static final InputStream STD_IN = System.in;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { //NOSONAR
         System.out.println("=========================== PART1");
 
         Part1.main(args);
@@ -67,9 +67,9 @@ public class Demo {
         System.setIn(STD_IN); //NOSONAR
     }
 
-    public static String readFile(String path) { //NOSONAR
+    public static String readFile(String path) {
         StringBuilder result = new StringBuilder();
-        File file = new File(path); //NOSONAR
+        File file = new File(path);
         try {
             Scanner scan = new Scanner(file, "cp1251");
             while (scan.hasNextLine()) {
