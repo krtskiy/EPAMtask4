@@ -67,9 +67,9 @@ public class Demo {
         System.setIn(STD_IN); //NOSONAR
     }
 
-    public static String readFile(String path) {
+    public static String readFile(String path) { //NOSONAR
         StringBuilder result = new StringBuilder();
-        File file = new File(path);
+        File file = new File(path); //NOSONAR
         try {
             Scanner scan = new Scanner(file, "cp1251");
             while (scan.hasNextLine()) {
@@ -78,7 +78,7 @@ public class Demo {
         scan.close();
         return result.toString().trim();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //NOSONAR
         }
         return result.toString();
     }
