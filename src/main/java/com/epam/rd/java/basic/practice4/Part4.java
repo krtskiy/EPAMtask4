@@ -10,7 +10,7 @@ public class Part4 {
         Pattern pattern = Pattern.compile("(?Us)[A-ZА-ЯЁ].+?\\.");
         Matcher matcher = pattern.matcher(input);
         while (matcher.find()) {
-            System.out.println(matcher.group());
+            System.out.println(matcher.group().replaceAll("\r\n", " "));
         }
     }
 
