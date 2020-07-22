@@ -9,6 +9,10 @@ import java.util.regex.Pattern;
 public class Part5 {
 
     public static void main(String[] args) {
+        printLocalizedWordSuddenlyJustOnce();
+    }
+
+    private static void printLocalizedWordSuddenlyJustOnce() {
         Locale localeRu = new Locale("ru");
         ResourceBundle bundleRu = ResourceBundle.getBundle("resources", localeRu);
         Locale localeEn = new Locale("en");
@@ -32,7 +36,6 @@ public class Part5 {
             } else {
                 System.out.println("Incorrect input");
             }
-
         }
     }
 

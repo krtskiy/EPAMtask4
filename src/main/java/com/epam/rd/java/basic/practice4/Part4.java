@@ -6,6 +6,10 @@ import java.util.regex.Pattern;
 public class Part4 {
 
     public static void main(String[] args) {
+        parseSentencesFromFile();
+    }
+
+    private static void parseSentencesFromFile() {
         String lineSeparator = System.lineSeparator();
         String input = Demo.readFile("part4.txt");
         Pattern pattern = Pattern.compile("(?Us)[A-ZА-ЯЁ].+?\\.");
