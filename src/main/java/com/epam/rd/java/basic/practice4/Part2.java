@@ -8,9 +8,9 @@ import java.util.*;
 public class Part2 {
     public static void main(String[] args) {
         writeTenRandomNumbersToFile();
-//        demonstrateUnsorted();
+        demonstrateUnsorted();
         sortRandomNumberFromFile();
-//        demonstrateSorted();
+        demonstrateSorted();
     }
 
     private static String randomUnsorted = "part2.txt";
@@ -27,7 +27,6 @@ public class Part2 {
             }
             pw.print(numbers);
             pw.close();
-            System.out.println(numbers);
         } catch (FileNotFoundException e) {
             e.printStackTrace(); //NOSONAR
         }
@@ -49,7 +48,6 @@ public class Part2 {
             PrintWriter pw = new PrintWriter(randomSorted);
             pw.print(numbers);
             pw.close();
-            System.out.println(numbers);
         } catch (FileNotFoundException e) {
             e.printStackTrace(); //NOSONAR
         }
