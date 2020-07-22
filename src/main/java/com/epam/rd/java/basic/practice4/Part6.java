@@ -34,7 +34,7 @@ public class Part6 {
                 break;
             }
         }
-        System.out.println(result);
+        System.out.println(userInput + ": " + result);
     }
 
 }
