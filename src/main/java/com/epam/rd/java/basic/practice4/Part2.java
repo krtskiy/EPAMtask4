@@ -41,7 +41,7 @@ public class Part2 {
             inputSet.add(Integer.parseInt(s));
         }
         try {
-            Collections.sort(inputSet);
+            bubbleSortAlgorithm(inputSet);
             for (Integer numbs : inputSet) {
                 numbers.append(numbs).append(" ");
             }
@@ -65,5 +65,23 @@ public class Part2 {
         System.out.println(result + Demo.readFile(randomSorted)); //NOSONAR
     }
 
+    private static List<Integer> bubbleSortAlgorithm(List<Integer> list) {
+        boolean isSorted = false;
+        int temp;
+        while (!isSorted) {
+            for (int x = 0; x < list.size(); x++) {
+                for (int i = 0; i < list.size() - x - 1; i++) {
+                    isSorted = true;
+                    if (list.get(i) > list.get(i + 1)) {
+                        isSorted = false;
+                        temp = list.get(i);
+                        list.set(i, list.get(i + 1));
+                        list.set(i + 1, temp);
+                    }
+                }
+            }
+        }
+        return list;
+    }
 
 }
