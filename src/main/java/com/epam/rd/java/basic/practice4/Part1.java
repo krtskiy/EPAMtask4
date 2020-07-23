@@ -8,7 +8,7 @@ public class Part1 {
 
 
     public static void main(String[] args) {
-        System.out.println(replaceFirstTwoLetters()); //NOSONAR
+        System.out.println(replaceFirstTwoLetters());
     }
 
     private static String part1Path = "part1.txt";

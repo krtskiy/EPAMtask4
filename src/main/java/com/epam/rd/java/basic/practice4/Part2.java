@@ -28,7 +28,7 @@ public class Part2 {
             pw.print(numbers);
             pw.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace(); //NOSONAR
+            e.printStackTrace();
         }
     }
 
@@ -49,20 +49,20 @@ public class Part2 {
             pw.print(numbers);
             pw.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace(); //NOSONAR
+            e.printStackTrace();
         }
 
     }
 
     private static void demonstrateUnsorted() {
         String result = "input ==> ";
-        System.out.println(result + Demo.readFile(randomUnsorted)); //NOSONAR
+        System.out.println(result + Demo.readFile(randomUnsorted));
 
     }
 
     private static void demonstrateSorted() {
         String result = "output ==> ";
-        System.out.println(result + Demo.readFile(randomSorted)); //NOSONAR
+        System.out.println(result + Demo.readFile(randomSorted));
     }
 
     private static List<Integer> bubbleSortAlgorithm(List<Integer> list) {
