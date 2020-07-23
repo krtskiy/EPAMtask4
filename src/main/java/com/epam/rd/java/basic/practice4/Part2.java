@@ -28,7 +28,7 @@ public class Part2 {
             pw.print(numbers);
             pw.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //NOSONAR
         }
     }
 
@@ -49,7 +49,7 @@ public class Part2 {
             pw.print(numbers);
             pw.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //NOSONAR
         }
 
     }
