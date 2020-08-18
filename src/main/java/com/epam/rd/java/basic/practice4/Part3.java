@@ -8,7 +8,6 @@ import java.util.regex.Pattern;
 
 public class Part3 {
 
-
     public static void main(String[] args) {
         returnValueByType();
     }
@@ -23,7 +22,7 @@ public class Part3 {
     private static final String REGEX_DOUBLES_WITHOUT_INT_PART = "(?<=\\s)\\.\\d+\\b";
     private static final String REGEX_STRINGS = "\\b[A-zА-яЁё]{2,}?\\b";
 
-    private static void returnValueByType() {
+    private static void returnValueByType() { //NOSONAR
         Map<String, String> inputMap = new LinkedHashMap<>();
         String input = Demo.readFile("part3.txt");
         Pattern pFindIntegers = Pattern.compile(REGEX_INTEGERS);
